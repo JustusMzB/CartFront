@@ -1,0 +1,11 @@
+<h3>Your Shopping Cart</h3>
+<p *ngIf="selectedItem">
+add {{selectedItem.name}}? (price: {{selectedItem.price}}$)<br>
+  <input type="number" class="amountInput" [valueAsNumber]="selectedAmount">
+<button (click)="addSelected(selectedItem, selectedAmount)">+</button>
+<mat-list *ngFor="let pos of positions">
+  {{pos.item.name}}: {{pos.amount}}<br>
+  {{pos.price}}$
+
+</mat-list>
+</p>

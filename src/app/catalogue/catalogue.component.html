@@ -1,0 +1,22 @@
+<mat-drawer-container>
+  <mat-drawer id="drwrCart" *ngIf="selectedItem" opened="true" mode="side">
+    <app-cart [selectedItem]="selectedItem"></app-cart>
+  </mat-drawer>
+  <mat-drawer-content>
+    <mat-accordion *ngFor="let item of items">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <b>{{item.name}}</b>
+          </mat-panel-title>
+          <mat-panel-description>
+            details
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-flat-button (click)="select(item)">add to cart</mat-flat-button>
+      </mat-expansion-panel>
+
+    </mat-accordion>
+  </mat-drawer-content>
+
+</mat-drawer-container>
