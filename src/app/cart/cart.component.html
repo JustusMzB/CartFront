@@ -7,7 +7,7 @@
       <input matInput type="number" placeholder="how many?" class="amountInput" [(ngModel)]="selectedAmount">
     </label>
 
-    <button mat-flat-button id="add-button" color="primary" (click)="cart.addSelected(selectedItem, selectedAmount)">add</button>
+    <button mat-flat-button id="add-button" color="primary" (click)="cart.addSelected(selectedItem, selectedAmount)"> <mat-icon>add_shopping_cart</mat-icon> </button>
   </p>
 <div id="cartContents">
 <mat-accordion *ngFor="let pos of cart.positions.values()">
@@ -17,9 +17,9 @@
         {{pos.item.name}}:  {{pos.amount}}x   {{pos.price | currency}}
       </mat-panel-title>
     </mat-expansion-panel-header>
-    <button mat-mini-fab color="primary" (click)="cart.addSelected(pos.item, 1)">+</button>
-    <button mat-mini-fab color="accent" (click)="cart.addSelected(pos.item, -1)">-</button>
-    <button mat-flat-button color="accent" (click)="cart.addSelected(pos.item, -pos.amount)">Remove</button>
+    <button mat-mini-fab color="primary" (click)="cart.addSelected(pos.item, 1)"><mat-icon aria-hidden="false" aria-label="add">add</mat-icon></button>
+    <button mat-mini-fab color="accent" (click)="cart.addSelected(pos.item, -1)"><mat-icon aria-hidden="false" aria-label="subtract">remove</mat-icon></button>
+    <button mat-button color="accent" (click)="cart.addSelected(pos.item, -pos.amount)"><mat-icon aria-hidden="false" aria-label="Remove">delete</mat-icon></button>
   </mat-expansion-panel>
 </mat-accordion>
 </div>
@@ -27,6 +27,6 @@
   <h2 class="mat-title">
     Total: {{cart.total | currency}}
   </h2>
-<button mat-raised-button color="warn" (click)="submit()">SUBMIT ORDER</button>
+<button mat-raised-button color="warn" (click)="submit()">ORDER  <mat-icon aria-hidden="false" aria-label="check">check</mat-icon></button>
 </div>
 </div>

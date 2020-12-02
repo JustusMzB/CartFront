@@ -11,7 +11,9 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {FormsModule} from '@angular/forms';
-
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {AppRoutingModule} from './routing/routing.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,9 @@ import {FormsModule} from '@angular/forms';
     MatButtonModule,
     MatInputModule,
     FormsModule,
+    MatToolbarModule,
+    MatIconModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
