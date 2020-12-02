@@ -1,10 +1,13 @@
+/*
+A Service to supply the available Items. It can be altered for actual HTTP-Requests to a DB holding the product catalogue.
+ */
 import { Injectable } from '@angular/core';
 import {Item} from './item';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ItemServiceService {
+export class ItemService {
   // Some Mock-Items
   items: Item[] = [
     {name: 'TestItem1', id: 1, price: 1.1},

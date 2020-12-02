@@ -1,6 +1,10 @@
+/*
+Component to substitute the greater context of our cart component. It would likely be used in a different, greater surrounding.
+ */
+
 import { Component, OnInit } from '@angular/core';
 import {Item} from '../item';
-import {ItemServiceService} from '../item-service.service';
+import {ItemService} from '../item.service';
 
 
 @Component({
@@ -12,7 +16,8 @@ export class CatalogueComponent implements OnInit {
   selectedItem: Item;
   items: Item[];
 
-  constructor(private itemService: ItemServiceService) {}
+  constructor(private itemService: ItemService) {
+  }
   select(item: Item): void{
     this.selectedItem = item;
 
@@ -22,7 +27,6 @@ export class CatalogueComponent implements OnInit {
   }
   ngOnInit(): void {
     this.getItems();
-    for (const i of this.items){}
   }
 
 }

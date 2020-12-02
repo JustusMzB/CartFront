@@ -1,36 +1,29 @@
-import {Component, Input, OnInit, OnChanges} from '@angular/core';
+/*
+A component to display a Cart and its controls.
+ */
+
+import {Component, Input, OnInit} from '@angular/core';
 import {Cart} from './cart';
 import {Item} from '../item';
-import {Position} from './position';
+import {CartService} from '../cart.service';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-export class CartComponent implements OnInit, OnChanges {
-@Input() selectedItem: Item;
-  positions: Position[] = [];
-  selectedAmount: number;
-  constructor() {
+export class CartComponent implements OnInit {
+@Input() selectedItem: Item; // allows selection of an Item from a parent component
+  selectedAmount = 1;
+  cart: Cart = new Cart(1); // The id of the Cart can be adjusted for the Context of this component
+  constructor(private cartService: CartService) {
   }
-
+  submit(): void{ // Submits the cart to e.g. the back end for processing, e.g. to be registered as an Order.
+    this.cartService.submitCart(this.cart);
+    this.cart = new Cart(1);
+  }
   ngOnInit(): void {
   }
-  ngOnChanges(): void{
-  }
-  addSelected(item: Item, amount: number): void{
-    const pos: Position = new Position(item, amount);
-    let wasInside = false;
-    for (const i of this.positions){
-      if (i.equals(pos)){
-        i.setAmount(i.amount + pos.amount);
-        wasInside = true;
-      }
-      if (!wasInside){
-        this.positions.push(pos);
-      }
-    }
-  }
-
 }
+
+

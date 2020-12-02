@@ -10,6 +10,7 @@ import {MatListModule} from '@angular/material/list';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import {MatInputModule} from '@angular/material/input';
     MatExpansionModule,
     MatButtonModule,
     MatInputModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

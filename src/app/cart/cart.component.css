@@ -1,3 +1,16 @@
-.amountInput {
-  width: 30%;
+
+h2{
+  margin-left: 1rem;
+}
+p, input, button{
+  margin: 0.5rem;
+}
+
+#cartContents{
+
+}
+
+#frame{
+  display: block;
+  padding: 1rem;
 }

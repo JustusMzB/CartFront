@@ -1,11 +1,32 @@
-<h3>Your Shopping Cart</h3>
-<p *ngIf="selectedItem">
-add {{selectedItem.name}}? (price: {{selectedItem.price}}$)<br>
-  <input type="number" class="amountInput" [valueAsNumber]="selectedAmount">
-<button (click)="addSelected(selectedItem, selectedAmount)">+</button>
-<mat-list *ngFor="let pos of positions">
-  {{pos.item.name}}: {{pos.amount}}<br>
-  {{pos.price}}$
 
-</mat-list>
-</p>
+<h2 class="mat-title">Your Shopping Cart</h2>
+<div id="frame" *ngIf="selectedItem">
+  <p>
+    add {{selectedItem.name}}?  (price: {{selectedItem.price * selectedAmount | currency}})<br>
+    <label>
+      <input matInput type="number" placeholder="how many?" class="amountInput" [(ngModel)]="selectedAmount">
+    </label>
+
+    <button mat-flat-button id="add-button" color="primary" (click)="cart.addSelected(selectedItem, selectedAmount)">add</button>
+  </p>
+<div id="cartContents">
+<mat-accordion *ngFor="let pos of cart.positions.values()">
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{pos.item.name}}:  {{pos.amount}}x   {{pos.price | currency}}
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <button mat-mini-fab color="primary" (click)="cart.addSelected(pos.item, 1)">+</button>
+    <button mat-mini-fab color="accent" (click)="cart.addSelected(pos.item, -1)">-</button>
+    <button mat-flat-button color="accent" (click)="cart.addSelected(pos.item, -pos.amount)">Remove</button>
+  </mat-expansion-panel>
+</mat-accordion>
+</div>
+<div id="totalSubmit">
+  <h2 class="mat-title">
+    Total: {{cart.total | currency}}
+  </h2>
+<button mat-raised-button color="warn" (click)="submit()">SUBMIT ORDER</button>
+</div>
+</div>

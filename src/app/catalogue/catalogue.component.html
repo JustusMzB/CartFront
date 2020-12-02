@@ -1,19 +1,16 @@
-<mat-drawer-container>
-  <mat-drawer id="drwrCart" *ngIf="selectedItem" opened="true" mode="side">
+<mat-drawer-container id="mainContent">
+  <mat-drawer id="drwrCart" *ngIf="selectedItem" opened=true mode="side">
     <app-cart [selectedItem]="selectedItem"></app-cart>
   </mat-drawer>
   <mat-drawer-content>
-    <mat-accordion *ngFor="let item of items">
+    <mat-accordion *ngFor="let item of items" multi="false">
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <mat-panel-title>
             <b>{{item.name}}</b>
           </mat-panel-title>
-          <mat-panel-description>
-            details
-          </mat-panel-description>
         </mat-expansion-panel-header>
-        <mat-flat-button (click)="select(item)">add to cart</mat-flat-button>
+        <button mat-flat-button (click)="select(item)" color="primary">add to cart</button>
       </mat-expansion-panel>
 
     </mat-accordion>
