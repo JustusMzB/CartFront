@@ -1,6 +1,9 @@
 <mat-drawer-container id="mainContent">
-  <mat-drawer id="drwrCart" *ngIf="selectedItem" opened=true mode="side">
-    <app-cart [selectedItem]="selectedItem"></app-cart>
+  <mat-drawer #cartDrawer mode="side">
+    <app-cart *ngIf="selectedItem" [selectedItem]="selectedItem"></app-cart>
+    <mat-label style="vertical-align: bottom">
+      <button mat-button (click)="cartDrawer.close()">Close Cart</button>
+    </mat-label>
   </mat-drawer>
   <mat-drawer-content>
     <mat-accordion *ngFor="let item of items" multi="false">
@@ -10,7 +13,10 @@
             <b>{{item.name}}</b>
           </mat-panel-title>
         </mat-expansion-panel-header>
-        <button mat-flat-button (click)="select(item)" color="primary">add to cart</button>
+
+        <!-- in case of extended Item class, this could hold a description view -->
+
+        <button mat-flat-button (click)="select(item); cartDrawer.open()" color="primary">add to cart</button>
       </mat-expansion-panel>
 
     </mat-accordion>

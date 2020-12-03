@@ -1,7 +1,17 @@
 <mat-toolbar>
   <span >CartFront</span>
   <span style="flex: 1 1 auto;"></span>
-  <span><mat-icon aria-hidden="false" aria-label="shopping cart icon">shopping_cart</mat-icon> Cart</span>
+  <nav style="color: white">
+    <a style="color: white" routerLink="/cart" >
+        <mat-icon aria-hidden="false" aria-label="shopping cart icon">shopping_cart</mat-icon>Cart
+    </a>
+    <a style="color: white" routerLink="catalogue">
+      <mat-icon aria-hidden="false" aria-label="shopping cart icon">
+        article
+      </mat-icon>
+      Catalogue
+    </a>
+  </nav>
 
 </mat-toolbar>
-<app-catalogue></app-catalogue>
+<router-outlet></router-outlet>
