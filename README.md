@@ -7,7 +7,7 @@ This Project was created as part of the code-challenge of Intershop. It implemen
 
 Note that I did not know any type of web development just one week ago, no js, no html, no css. 
 
-I am aware that this app is not very sophisticated, this should be seen as a demonstration of my ability to learn.
+As my first angular app, I am aware that this app is not very sophisticated, this should be seen as a demonstration of my ability to learn.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.2.
 
